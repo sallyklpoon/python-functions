@@ -46,16 +46,12 @@ def romannumeral_upto_hundreds(positive_int):
 def romannumeral(positive_int):
     if positive_int == 10000:
         return roman_1s[3] * 10
-    elif number_of_digits(positive_int) == 4:
+    elif positive_int >= 1000:
         thousands_digit = positive_int // 1000
         return count_ones(thousands_digit, 3) + \
             romannumeral_upto_hundreds(positive_int - thousands_digit * 1000)
     else:
-        roman_number = ""
-        int_iterative = get_integer_iterative(positive_int)
-        for numbers_place in range(number_of_digits(positive_int)):
-            roman_number += romannumeral_1to9_loop(int_iterative[numbers_place], numbers_place)
-        return roman_number
+        return romannumeral_upto_hundreds(positive_int)
 
 
 def main():
