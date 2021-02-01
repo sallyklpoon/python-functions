@@ -42,33 +42,24 @@ def alpha_to_number(alpha_number):
         return alpha_number
 
 
-def validate_input(input_string):
-    for string_position in [3, 7]:
-        if input_string[string_position] != "-":
-            return "false"
-    for string_position in [0, 1, 2, 4, 5, 6, 8, 9, 10, 11]:
-        if input_string[string_position].isalum():
-            return "false"
-
-
 def phone(input_string):
-    if validate_input(input_string) == "false":
-        return "Invalid input, please input in format XXX-XXX-XXXX where X is alphanumeric."
-    else:
-        translated_phone = ""
-        for string_position in range(12):
-            if string_position == 3 or string_position == 7:
-                translated_phone += "-"
-            else:
-                translated_phone += alpha_to_number(input_string[string_position])
-        return translated_phone
+    translated_phone = ""
+    for string_position in range(12):
+        if string_position == 3 or string_position == 7:
+            translated_phone += "-"
+        else:
+            translated_phone += alpha_to_number(input_string[string_position])
+    return translated_phone
 
 
 def main():
-    phone_number = "abc-FoOD"
+    phone_number = "555-FoO-1234"
     print(phone(phone_number))
     print(map_2to5("d"))
     print(alpha_to_number("1"))
+
+    string = "-"
+    print(string.isalnum())
 
 
 if __name__ == '__main__':
