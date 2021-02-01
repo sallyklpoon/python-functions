@@ -8,19 +8,19 @@ SECONDS_IN_WEEK = SECONDS_IN_DAY * 7    # 604,800
 conversion_list = [SECONDS_IN_WEEK, SECONDS_IN_DAY, SECONDS_IN_HOUR, SECONDS_IN_MINUTE, 1]
 
 
-def seconds(source_seconds):
+def seconds(total_seconds):
     """Produce string of seconds converted to number of weeks, days, hours,
     minutes, and seconds.
 
-    :param source_seconds: a positive integer
+    :param total_seconds: a positive integer
     :precondition: a positive integer is submitted as the argument
     :postcondition: calculate number of weeks, days, hours, minutes and seconds given the argument
     :return: list of integers for [weeks, days, hours, minutes, seconds]
     """
     output = []
     for conversion in conversion_list:
-        converted_time = source_seconds // conversion
-        source_seconds = source_seconds % conversion
+        converted_time = total_seconds // conversion
+        total_seconds = total_seconds % conversion
         output.append(converted_time)
     return output
 
