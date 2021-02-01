@@ -18,7 +18,7 @@ def map_2to5(alpha_number):
         return str(3)
     elif alpha_number in mapped_4:
         return str(4)
-    else:
+    else:                               # else: alpha_number in mapped_5
         return str(5)
 
 
@@ -29,7 +29,7 @@ def map_6to9(alpha_number):
         return str(7)
     elif alpha_number in mapped_8:
         return str(8)
-    else:
+    else:                               # else: alpha_number in mapped_9
         return str(9)
 
 
@@ -38,8 +38,8 @@ def alpha_to_number(alpha_number):
         return map_2to5(alpha_number)
     if alpha_number in mapped_6to9:
         return map_6to9(alpha_number)
-    else:
-        return alpha_number              # else: it is a number
+    else:                               # else: it is a number
+        return alpha_number
 
 
 def validate_input(input_string):
