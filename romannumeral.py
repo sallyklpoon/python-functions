@@ -51,7 +51,7 @@ def romannumeral_tally(positive_digit, place_value):
     roman_1 = romannumeral_power10s[place_value]
     roman_number = ""
     for count in range(positive_digit):
-        roman_number = roman_number + roman_1
+        roman_number += roman_1
     return roman_number
 
 
@@ -62,7 +62,7 @@ def romannumeral_1to9_loop(positive_digit, place_value):
     :param positive_digit: an integer [1, 9]
     :param place_value: a place value [0, 2]
     :precondition: the positive digit belongs either in the ones, tens, or hundreds place
-    of the complete integer
+                   of the complete integer
     :postcondition: produce the correct romannumeral representation of this digit
     :return: roman numeral representation of the integer digit
     """
@@ -82,7 +82,7 @@ def romannumeral_upto_hundreds(positive_int):
 
     :param positive_int: a positive integer <= 999
     :precondition: the integer passed is positive and has a maximum of 3 place values
-    :postcontiion: produces correct roman numeral representation of integer passed
+    :postcondition: produces correct roman numeral representation of integer passed
     :return: roman numeral representation of integer
     """
     roman_number = ""
