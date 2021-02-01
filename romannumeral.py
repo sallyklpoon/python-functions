@@ -70,7 +70,9 @@ def romannumeral_1to9_loop(positive_digit, place_value):
     roman_5 = romannumeral_5power10s[place_value]
     if positive_digit == 4:
         return roman_1 + roman_5
-    elif positive_digit >= 5:
+    elif positive_digit == 9:
+        return roman_1 + romannumeral_power10s[place_value + 1]
+    elif positive_digit in range(5, 9):
         positive_digit -= 5
         return roman_5 + romannumeral_tally(positive_digit, place_value)
     else:
