@@ -9,17 +9,6 @@ romannumeral_power10s = ["I", "X", "C", "M"]     # in integer: 100, 10, 1, 1000
 romannumeral_5power10s = ["V", "L", "D"]         # in integer: 500, 50, 5
 
 
-def number_of_digits(integer):
-    """Calculate the number of digits in an integer.
-
-    :param integer: an integer
-    :precondition: an integer must be passed to the function
-    :postcondition: produces the number of digits in the integer as an integer
-    :return: length of an integer
-    """
-    return len(str(integer))
-
-
 def get_digits_iterative(integer):
     """Create a list of each digit in an integer.
 
@@ -89,7 +78,7 @@ def romannumeral_upto_hundreds(positive_int):
     """
     roman_number = ""
     int_iterative = get_digits_iterative(positive_int)
-    for place_value in range(number_of_digits(positive_int)):
+    for place_value in range(len(str(positive_int))):
         roman_number = romannumeral_1to9_loop(int_iterative[place_value], place_value) + roman_number
     return roman_number
 
@@ -113,9 +102,6 @@ def romannumeral(positive_int):
 
 
 def main():
-    print(number_of_digits(0))
-    print(number_of_digits(1_000))
-
     print(get_digits_iterative(123))
 
     print(romannumeral_tally(3, 0))
