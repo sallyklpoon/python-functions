@@ -9,17 +9,17 @@ romannumeral_power10s = ["I", "X", "C", "M"]     # in integer: 100, 10, 1, 1000
 romannumeral_5power10s = ["V", "L", "D"]         # in integer: 500, 50, 5
 
 
-def get_digits_iterative(integer):
+def get_digits_iterative(positive_integer):
     """Create a list of each digit in an integer.
 
     Given an integer, each digit number will be an element in the list.
 
-    :param integer: an integer
+    :param positive_integer: an integer
     :precondition: the inputted parameter is an integer
     :postcondition: a list of each digit as an element
     :return: a list of each digit as an element
     """
-    digit_iterative = [int(x) for x in str(integer)]
+    digit_iterative = [int(x) for x in str(positive_integer)]
     return list(reversed(digit_iterative))
 
 
@@ -68,17 +68,17 @@ def romannumeral_1to9_loop(positive_digit, place_value):
         return romannumeral_tally(positive_digit, place_value)
 
 
-def romannumeral_upto_hundreds(positive_int):
+def romannumeral_upto_hundreds(positive_integer):
     """Converts integers that have place value up to hundreds into roman numeral.
 
-    :param positive_int: a positive integer <= 999
+    :param positive_integer: a positive integer <= 999
     :precondition: the integer passed is positive and has a maximum of 3 place values
     :postcondition: produces correct roman numeral representation of integer passed
     :return: roman numeral representation of integer
     """
     roman_number = ""
-    int_iterative = get_digits_iterative(positive_int)
-    for place_value in range(len(str(positive_int))):
+    int_iterative = get_digits_iterative(positive_integer)
+    for place_value in range(len(str(positive_integer))):
         roman_number = romannumeral_1to9_loop(int_iterative[place_value], place_value) + roman_number
     return roman_number
 
