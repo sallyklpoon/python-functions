@@ -1,5 +1,8 @@
 """This module contains a function that uses Eratosthenes method
-of finding a list of prime numbers given a range from [0, n],
+of finding a list of prime numbers given a range from [0, n].
+
+This module requires the import of math.sqrt() and math.ceil() functions
+from the math library.
 """
 from math import sqrt, ceil
 
