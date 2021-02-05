@@ -8,17 +8,6 @@ digit in a phone number to alpha_to_number() which will figure out if this digit
 belongs in the group of mapped 2-5 numbers (send to map_2to5) or mapped 6-9 numbers
 (send to map_6to9).
 """
-mapped_2 = ["A", "B", "C", "a", "b", "c"]
-mapped_3 = ["D", "E", "F", "d", "e", "f"]
-mapped_4 = ["G", "H", "I", "g", "h", "i"]
-mapped_5 = ["J", "K", "L", "j", "k", "l"]
-mapped_6 = ["M", "N", "O", "m", "n", "o"]
-mapped_7 = ["P", "Q", "R", "S", "p", "q", "r", "s"]
-mapped_8 = ["T", "U", "V", "t", "u", "v"]
-mapped_9 = ["W", "X", "Y", "Z", "w", "x", "y", "z"]
-
-mapped_2to5 = mapped_2 + mapped_3 + mapped_4 + mapped_5
-mapped_6to9 = mapped_6 + mapped_7 + mapped_8 + mapped_9
 
 
 def map_2to5(alpha_number):
@@ -31,13 +20,13 @@ def map_2to5(alpha_number):
     :postcondition: translate input string to the correct mapped number as a string
     :return: a string integer of the mapped alpha_number
     """
-    if alpha_number in mapped_2:
+    if alpha_number in "ABC":
         return str(2)
-    elif alpha_number in mapped_3:
+    elif alpha_number in "DEF":
         return str(3)
-    elif alpha_number in mapped_4:
+    elif alpha_number in "GHI":
         return str(4)
-    else:                               # else: alpha_number in mapped_5
+    else:  # else: alpha_number in "JKL"
         return str(5)
 
 
@@ -51,13 +40,13 @@ def map_6to9(alpha_number):
     :postcondition: translate input string to the correct mapped number as a string
     :return: a string integer of the mapped alpha_number
     """
-    if alpha_number in mapped_6:
+    if alpha_number in "MNO":
         return str(6)
-    elif alpha_number in mapped_7:
+    elif alpha_number in "PQRS":
         return str(7)
-    elif alpha_number in mapped_8:
+    elif alpha_number in "TUV":
         return str(8)
-    else:                               # else: alpha_number in mapped_9
+    else:  # else: alpha_number in "WXYZ"
         return str(9)
 
 
@@ -70,11 +59,11 @@ def alpha_to_number(alpha_number):
     :postcondition: translate input string to the correct mapped number as a string
     :return: a string integer of the mapped alpha_number
     """
-    if alpha_number in mapped_2to5:
-        return map_2to5(alpha_number)
-    if alpha_number in mapped_6to9:
-        return map_6to9(alpha_number)
-    else:                               # else: it is a number
+    if alpha_number in "ABCDEFGHIJKLabcdefghijkl":
+        return map_2to5(alpha_number.upper())
+    if alpha_number in "MNOPQRSTUVWXYZmnopqrstuvwxyz":
+        return map_6to9(alpha_number.upper())
+    else:  # else: alpha_number is a number
         return alpha_number
 
 
