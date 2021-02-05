@@ -10,8 +10,6 @@ Canadian_cash defines as a global list of cash amounts available in canadian cur
 """
 from math import trunc
 
-canadian_cash = [100, 50, 20, 10, 5, 2, 1, 0.25, 0.10, 0.05]
-
 
 def roundoff_pennies(total_dollars):
     """Round out pennies from given dollar amount.
@@ -48,9 +46,10 @@ def moneychanger(total_dollars):
     :return: a list with the number of each currency required following this format...
             [$100-bill, $50-bill, $20-bill, $10-bill, $5-bill, $2, $1, 0.25 cents, 0.10 cents, 0.05 cents]
     """
+    canadian_change = [100, 50, 20, 10, 5, 2, 1, 0.25, 0.10, 0.05]
     output_change = []
     total_dollars = roundoff_pennies(total_dollars)
-    for change_value in canadian_cash:
+    for change_value in canadian_change:
         output_change.append(trunc(total_dollars // change_value))
         total_dollars = round((((total_dollars / change_value) - (total_dollars // change_value)) * change_value), 2)
     return output_change
