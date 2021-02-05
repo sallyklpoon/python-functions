@@ -1,74 +1,27 @@
 from string import ascii_lowercase, ascii_uppercase, digits
 
-uppercase = list(ascii_uppercase)
-lowercase = list(ascii_lowercase)
-digits = list(digits)
 
-
-def translate_number(number):
-    return number
-
-
-def foo(alpha_number, shift):
-    if shift < 0:
-        shift = -(abs(shift) % 26)
+def cipher_character(character, shift):
+    if character in ascii_uppercase:
+        return ascii_uppercase[(ascii_uppercase.index(character) + shift) % 26]
+    elif character in ascii_lowercase:
+        return ascii_lowercase[(ascii_lowercase.index(character) + shift) % 26]
+    elif character in digits:
+        return str((int(character) + shift) % 10)
     else:
-        shift %= 26
-    for alpha_set in [uppercase, lowercase]:
-        if alpha_number in alpha_set:
-            current_position = alpha_set.index(alpha_number)
-            if current_position - shift >= 0:
-                translated_letter = alpha_set[shift - (26 - current_position)]
-            else:
-                translated_letter = alpha_set[current_position + shift]
-            return translated_letter
+        return character
 
 
-# def find_letter(alpha_number, shift):
-#     shift %= 26
-#     if alpha_number in uppercase:
-#         current_position = uppercase.index(alpha_number)
-#         if current_position - shift >= 0:
-#             translated_letter = uppercase[shift - (26 - current_position)]
-#         else:
-#             translated_letter = uppercase[current_position + shift]
-#         return translated_letter
-#     if alpha_number in lowercase:
-#         current_position = lowercase.index(alpha_number)
-#         if current_position - shift >= 0:
-#             translated_letter = lowercase[shift - (26 - current_position)]
-#         else:
-#             translated_letter = lowercase[current_position + shift]
-#         return translated_letter
+def caesarcipher(message, encode, shift):
+    output_translation = ""
+    if encode:
+        for character in message:
+            output_translation += cipher_character(character, shift)
+    elif not encode:
+        for character in message:
+            output_translation += cipher_character(character, -shift)
+    return output_translation
 
 
-letter = "Q"
-shift = -85
-print(shift % 26)
-# print(find_letter(letter, shift))
-print(foo(letter, shift))
-
-
-# def get_translation(character, shift): # pass to appropriate alpha or number comparison
-#     if character in digits:
-#
-#     else:
-#         for letter in [uppercase, lowercase]:
-#             if character == letter:
-#                 output_character = uppercase.index(letter + shift)
-#                 return output_character
-#     elif character in lowercase:
-#         pass
-#     elif character in digits:
-
-
-# def caesarcipher(message, encode, shift):
-#     message_characters = list(message)
-#     output_translation = ""
-#     if encode:
-#         for character in message_characters:
-#             output_translation += get_translation(character, shift)
-#     elif not encode:
-#         for character in message_characters:
-#             output_translation += get_translation(character, - shift)
-#     pass
+print(caesarcipher("Hello, How are you 123?", True, -723))
+print(caesarcipher("Mjqqt, Mtb fwj dtz 890?", False, -723))
