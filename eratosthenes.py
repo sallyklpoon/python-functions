@@ -1,19 +1,31 @@
-"""This module contains a function that uses Eratosthenes method
+"""
+Sally Poon A01232177
+Date Completed: 02-06-2021
+
+This module contains a function that uses Eratosthenes method
 of finding a list of prime numbers given a range from [0, n].
 
 This module requires the import of math.sqrt() and math.ceil() functions
 from the math library.
 """
+import doctest
 from math import sqrt, ceil
 
 
 def eratosthenes(upper_bound):
-    """Find the numbers within range [0, upper_bound] that are prime numbers.
+    """Determine the prime numbers within range 0 to given upper_bound.
 
     :param upper_bound: a positive integer
     :precondition: a positive integer is passed as an argument
     :postcondition: return a correct list of prime numbers up to upper_bound range
     :return: a list of prime numbers up to the upper_bound range
+
+    >>> eratosthenes(1)
+    []
+    >>> eratosthenes(30)
+    [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    >>> eratosthenes(100)
+    [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
     """
     number_list = list(range(2, upper_bound + 1))
     evaluating_numbers = list(range(2, ceil(sqrt(upper_bound))))
@@ -25,16 +37,11 @@ def eratosthenes(upper_bound):
 
 
 def main():
-    number_list = [0, 2, 3, 4]
-
-    number_list.remove(3)
-    input_integer = 100
-    print(eratosthenes(input_integer))
-    print(eratosthenes(16))
-    print(eratosthenes(19))
-    primes_below_30 = eratosthenes(30)
-    print(primes_below_30)
+    """Execute the program."""
+    doctest.testmod(verbose=True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    # Run main() if module being executed as a program
     main()
+
