@@ -1,31 +1,46 @@
-"""Module contains a function to calculate how many leap years
- are in a range of given years.
+"""
+Sally Poon A01232177
+Date Completed: 02-06-2021
 
- This module requires the import of calendar to use the calendar.leapdays(a,b) function"""
+Module contains a function to calculate how many leap years are in a range of given years.
 
+This module requires the import of calendar to use the calendar.leapdays(a,b) function
+"""
 import calendar
+import doctest
 
 
 def leapyears(lower_bound, upper_bound):
     """Calculate the number of leap years in a given range.
 
-    :param lower_bound: an integer > 0 and <= upper_bound
-    :param upper_bound: an integer > 0
-    :precondition: lower_bound passed to function must be a an integer that is
-                   greater than 0 and less than or equal to the upper_bound.
-                   The upper_bound passed must be an integer greater than 0.
+    Range determined by lower and upper bound parameters passed.
+
+    :param lower_bound: an integer
+    :param upper_bound: an integer
+    :precondition: lower_bound passed is an integer that is > 0 and <= upper_bound.
+    :precondition: upper_bound passed is an integer > 0.
     :postcondition: produce the correct number of leap years within the given range
     :return: an integer representing the number of leap years within the given range
+
+    >>> leapyears(1, 1)
+    0
+    >>> leapyears(2019, 2020)
+    0
+    >>> leapyears(2021, 2021)
+    0
+    >>> leapyears(1921, 2021)
+    25
+    >>> leapyears(1, 2020)
+    489
     """
     return calendar.leapdays(lower_bound, upper_bound)
 
 
 def main():
-    lower_bound = 1918
-    upper_bound = 2018
-    print(leapyears(lower_bound, upper_bound))
-    print(type(leapyears(lower_bound, upper_bound)))
+    """Execute the program."""
+    doctest.testmod(verbose=True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    # Run main() if module being executed as a program
     main()
