@@ -141,6 +141,17 @@ def romannumeral_upto_hundreds(positive_integer):
     :precondition: the integer passed is positive and has a maximum of 3 place values
     :postcondition: produces correct roman numeral representation of integer passed
     :return: roman numeral representation of integer
+
+    >>> romannumeral_upto_hundreds(1)
+    'I'
+    >>> romannumeral_upto_hundreds(999)
+    'CMXCIX'
+    >>> romannumeral_upto_hundreds(6)
+    'VI'
+    >>> romannumeral_upto_hundreds(54)
+    'LIV'
+    >>> romannumeral_upto_hundreds(483)
+    'CDLXXXIII'
     """
     roman_number = ""
     int_iterative = reverse_digits_iterative(positive_integer)
@@ -156,6 +167,25 @@ def romannumeral(positive_int):
     :precondition: integer passed must be within range of 1 - 10_000
     :postcondition: produce correct roman numeral of integer
     :return: roman numeral representation of integer
+
+    >>> romannumeral(1)
+    'I'
+    >>> romannumeral(10000)
+    'MMMMMMMMMM'
+    >>> romannumeral(4444)
+    'MMMMCDXLIV'
+    >>> romannumeral(5555)
+    'MMMMMDLV'
+    >>> romannumeral(9999)
+    'MMMMMMMMMCMXCIX'
+    >>> romannumeral(3)
+    'III'
+    >>> romannumeral(82)
+    'LXXXII'
+    >>> romannumeral(354)
+    'CCCLIV'
+    >>> romannumeral(6789)
+    'MMMMMMDCCLXXXIX'
     """
     if positive_int == 10_000:
         return romannumeral_power10s[3] * 10
@@ -170,20 +200,6 @@ def romannumeral(positive_int):
 def main():
     """Execute the program."""
     doctest.testmod(verbose=True)
-
-    print(romannumeral_upto_hundreds(999))
-    print(romannumeral_upto_hundreds(1))
-    print(romannumeral_upto_hundreds(548))
-
-    print(romannumeral(10000))
-    print(romannumeral(4132))
-    print(romannumeral(5555))
-    print(romannumeral(4444))
-    print(romannumeral(354))
-    print(romannumeral(6789))
-    print(romannumeral(9999))
-    print(romannumeral(12))
-    print(romannumeral(3))
 
 
 if __name__ == "__main__":
