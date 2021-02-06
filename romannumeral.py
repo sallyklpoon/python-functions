@@ -201,4 +201,5 @@ def main():
 
 
 if __name__ == "__main__":
+    # Run main() if module being executed as a program
     main()
