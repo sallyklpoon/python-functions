@@ -27,10 +27,8 @@ def reverse_digits_iterative(positive_integer):
 
     >>> reverse_digits_iterative(0)
     [0]
-
     >>> reverse_digits_iterative(1)
     [1]
-
     >>> reverse_digits_iterative(123456)
     [6, 5, 4, 3, 2, 1]
     """
@@ -45,13 +43,15 @@ def romannumeral_tally(positive_digit, place_value):
     Given a single particular digit from a positive integer and its place value,
     tally the place_value's matching roman numeral representation in power of 10s.
 
-    :param positive_digit: an integer > 0
+    :param positive_digit: an integer >= 0
     :param place_value: an integer [0, 3]
     :precondition: an integer and an integer [0, 3] is passed as arguments
     :postcondition: produce the correct roman number tally of the positive_integer_digit value
                     using the corresponding roman numeral for the digit's place_value
     :return: roman numeral tally of the positive_integer_digit value
 
+    >>> romannumeral_tally(0, 3)
+    ''
     >>> romannumeral_tally(1, 0)
     'I'
     >>> romannumeral_tally(8, 1)
@@ -189,12 +189,10 @@ def romannumeral(positive_int):
     """
     if positive_int == 10_000:
         return romannumeral_power10s[3] * 10
-    elif positive_int >= 1000:
+    else:
         thousands_digit = positive_int // 1000
         return romannumeral_tally(thousands_digit, 3) + \
             romannumeral_upto_hundreds(positive_int - thousands_digit * 1000)
-    else:
-        return romannumeral_upto_hundreds(positive_int)
 
 
 def main():
