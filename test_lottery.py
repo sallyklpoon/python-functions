@@ -2,7 +2,10 @@
 Sally Poon; A01232177
 Date Completed: February 5th, 2021
 
-This module is a test
+This module is a unit test for lottery.py, demonstrating that fulfills program requirements.
+
+Required imports of TestCase from unittest and patch from unittest.mock
+in addition to lottery from lottery.py.
 """
 
 from unittest import TestCase
