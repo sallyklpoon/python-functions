@@ -56,7 +56,7 @@ def moneychanger(total_dollars):
 
 
 def main():
-    total_dollars = 0.00
+    total_dollars = 999.97
     print(roundoff_pennies(total_dollars))
     print(moneychanger(total_dollars))
 

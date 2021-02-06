@@ -6,7 +6,7 @@ This module contains the function caesarcipher and its helper function, cipher_c
 An import of ascii_lowercase, ascii_uppercase, and digits from the library string
 is required.
 """
-
+import doctest
 from string import ascii_lowercase, ascii_uppercase, digits
 
 
@@ -62,9 +62,9 @@ def caesarcipher(message, encode, shift):
 
 def main():
     """Execute the program."""
-    doctest.testmod(verbose"True)
+    doctest.testmod(verbose=True)
 
 
-# Run main() if module is being run as program
 if __name__ == '__main__':
+    # Run main() if module is being run as program
     main()
