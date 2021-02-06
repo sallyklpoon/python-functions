@@ -25,6 +25,7 @@ mapped_9 = ["W", "X", "Y", "Z"]
 mapped_2to5 = mapped_2 + mapped_3 + mapped_4 + mapped_5
 mapped_6to9 = mapped_6 + mapped_7 + mapped_8 + mapped_9
 
+
 def map_2to5(letter):
     """Translate inputted letter to the mapped number that is [2, 5].
 
@@ -69,7 +70,7 @@ def map_2to5(letter):
         return str(5)
 
 
-def map_6to9(alpha_number):
+def map_6to9(letter):
     """Translate inputted letter to the mapped number that is [6, 9].
 
     :param letter: a single character capitalized letter
@@ -107,11 +108,11 @@ def map_6to9(alpha_number):
     >>> map_6to9("Z")
     '9'
     """
-    if alpha_number in mapped_6:
+    if letter in mapped_6:
         return str(6)
-    elif alpha_number in mapped_7:
+    elif letter in mapped_7:
         return str(7)
-    elif alpha_number in mapped_8:
+    elif letter in mapped_8:
         return str(8)
     else:  # else: alpha_number in "WXYZ"
         return str(9)
@@ -193,4 +194,3 @@ def main():
 if __name__ == "__main__":
     # Run main() if module being executed as a program
     main()
-
