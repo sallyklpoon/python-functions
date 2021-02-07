@@ -15,38 +15,6 @@ romannumeral_power10s = ["I", "X", "C", "M"]     # in integer: 100, 10, 1, 1000
 romannumeral_5power10s = ["V", "L", "D"]         # in integer: 500, 50, 5
 
 
-def romannumeral_tally(positive_digit, place_value):
-    """Create a number's value in tally form using the ones roman numeral letter
-    for the place_value of this digit.
-
-    Given a single particular digit from a positive integer and its place value,
-    tally the place_value's matching roman numeral representation in power of 10s.
-
-    :param positive_digit: an integer >= 0
-    :param place_value: an integer [0, 3]
-    :precondition: an integer and an integer [0, 3] is passed as arguments
-    :postcondition: produce the correct roman number tally of the positive_integer_digit value
-                    using the corresponding roman numeral for the digit's place_value
-    :return: roman numeral tally of the positive_integer_digit value
-
-    >>> romannumeral_tally(0, 3)
-    ''
-    >>> romannumeral_tally(1, 0)
-    'I'
-    >>> romannumeral_tally(8, 1) # ones place
-    'XXXXXXXX'
-    >>> romannumeral_tally(14, 2) # tens place
-    'CCCCCCCCCCCCCC'
-    >>> romannumeral_tally(21, 3) # hundreds place
-    'MMMMMMMMMMMMMMMMMMMMM'
-    """
-    roman_1 = romannumeral_power10s[place_value]
-    roman_number = ""
-    for count in range(positive_digit):
-        roman_number += roman_1
-    return roman_number
-
-
 def romannumeral_1to9_loop(positive_digit, place_value):
     """Produce the roman numeral representation of an integer [1, 9] given its
     place_value in a complete number.
@@ -113,9 +81,9 @@ def romannumeral_1to9_loop(positive_digit, place_value):
         return roman_1 + romannumeral_power10s[place_value + 1]
     elif positive_digit in range(5, 9):
         positive_digit -= 5
-        return roman_5 + romannumeral_tally(positive_digit, place_value)
+        return roman_5 + roman_1 * positive_digit
     else:
-        return romannumeral_tally(positive_digit, place_value)
+        return roman_1 * positive_digit
 
 
 def hundreds_romannumeral(positive_integer):
@@ -176,7 +144,7 @@ def romannumeral(positive_int):
         return romannumeral_power10s[3] * 10
     else:
         thousands_digit = positive_int // 1000
-        return romannumeral_tally(thousands_digit, 3) + \
+        return romannumeral_power10s[3] * thousands_digit + \
             hundreds_romannumeral(positive_int - thousands_digit * 1000)
 
 
