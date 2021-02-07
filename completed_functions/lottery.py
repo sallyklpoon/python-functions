@@ -19,7 +19,7 @@ def lottery():
     :postcondition: produce a list of 6 unique and random numbers within the range of [1,49]
     :return: list of 6 unique and random numbers in the range [1, 49]
     """
-    lottery_numbers = sample(range(1, 49), k=6)
+    lottery_numbers = sample(range(1, 50), k=6)
     return sorted(lottery_numbers)
 
 
