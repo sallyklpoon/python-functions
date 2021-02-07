@@ -118,10 +118,10 @@ def map_6to9(letter):
         return str(9)
 
 
-def alpha_to_number(alpha_number):
+def alpha_to_number(character):
     """Return a given alpha_number digit (letter or number) to its mapped number.
 
-    :param alpha_number: an alphanumeric string with a single character
+    :param character: an alphanumeric string with a single character
     :postcondition: pass an alphanumeric string with a single character
     :postcondition: translate input string to the correct mapped number as a string
     :return: a string integer of the mapped alpha_number
@@ -145,12 +145,12 @@ def alpha_to_number(alpha_number):
     >>> alpha_to_number("9")
     '9'
     """
-    if alpha_number.upper() in mapped_2to5:
-        return map_2to5(alpha_number.upper())
-    if alpha_number.upper() in mapped_6to9:
-        return map_6to9(alpha_number.upper())
+    if character.upper() in mapped_2to5:
+        return map_2to5(character.upper())
+    if character.upper() in mapped_6to9:
+        return map_6to9(character.upper())
     else:  # else: alpha_number is a number
-        return alpha_number
+        return character
 
 
 def phone(input_phone):
@@ -178,11 +178,11 @@ def phone(input_phone):
     '555-438-3663'
     """
     translated_phone = ""
-    for string_position in range(12):
-        if string_position == 3 or string_position == 7:
+    for character in input_phone:
+        if character == "-":
             translated_phone += "-"
         else:
-            translated_phone += alpha_to_number(input_phone[string_position])
+            translated_phone += alpha_to_number(character)
     return translated_phone
 
 
