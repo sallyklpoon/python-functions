@@ -49,7 +49,7 @@ def seconds(total_seconds):
     output = []
     for conversion in conversion_list:
         converted_time = total_seconds // conversion
-        total_seconds = total_seconds % conversion
+        total_seconds %= conversion
         output.append(converted_time)
     return output
 
