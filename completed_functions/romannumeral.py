@@ -15,27 +15,6 @@ romannumeral_power10s = ["I", "X", "C", "M"]     # in integer: 100, 10, 1, 1000
 romannumeral_5power10s = ["V", "L", "D"]         # in integer: 500, 50, 5
 
 
-def reverse_digits_iterative(positive_integer):
-    """Create a list of each digit in an integer reversed.
-
-    Given an integer, each digit number will become an element in a list.
-
-    :param positive_integer: a number
-    :precondition: the inputted positive_integer is an integer >= 0
-    :postcondition: a list of each digit as an element
-    :return: a list of each digit as an element
-
-    >>> reverse_digits_iterative(0)
-    [0]
-    >>> reverse_digits_iterative(1)
-    [1]
-    >>> reverse_digits_iterative(123456)
-    [6, 5, 4, 3, 2, 1]
-    """
-    digit_iterative = [int(digit) for digit in str(positive_integer)]
-    return list(reversed(digit_iterative))
-
-
 def romannumeral_tally(positive_digit, place_value):
     """Create a number's value in tally form using the ones roman numeral letter
     for the place_value of this digit.
@@ -54,11 +33,11 @@ def romannumeral_tally(positive_digit, place_value):
     ''
     >>> romannumeral_tally(1, 0)
     'I'
-    >>> romannumeral_tally(8, 1)
+    >>> romannumeral_tally(8, 1) # ones place
     'XXXXXXXX'
-    >>> romannumeral_tally(14, 2)
+    >>> romannumeral_tally(14, 2) # tens place
     'CCCCCCCCCCCCCC'
-    >>> romannumeral_tally(21, 3)
+    >>> romannumeral_tally(21, 3) # hundreds place
     'MMMMMMMMMMMMMMMMMMMMM'
     """
     roman_1 = romannumeral_power10s[place_value]
@@ -84,6 +63,7 @@ def romannumeral_1to9_loop(positive_digit, place_value):
     :postcondition: produce the correct romannumeral representation of this digit
     :return: roman numeral representation of the integer digit
 
+    Test ones place digits.
     >>> romannumeral_1to9_loop(1, 0)
     'I'
     >>> romannumeral_1to9_loop(3, 0)
@@ -96,6 +76,8 @@ def romannumeral_1to9_loop(positive_digit, place_value):
     'VIII'
     >>> romannumeral_1to9_loop(9, 0)
     'IX'
+
+    Test tens place digits.
     >>> romannumeral_1to9_loop(1, 1)
     'X'
     >>> romannumeral_1to9_loop(2, 1)
@@ -108,6 +90,8 @@ def romannumeral_1to9_loop(positive_digit, place_value):
     'LXX'
     >>> romannumeral_1to9_loop(9, 1)
     'XC'
+
+    Test hundreds place digits.
     >>> romannumeral_1to9_loop(1, 2)
     'C'
     >>> romannumeral_1to9_loop(3, 2)
@@ -134,43 +118,44 @@ def romannumeral_1to9_loop(positive_digit, place_value):
         return romannumeral_tally(positive_digit, place_value)
 
 
-def romannumeral_upto_hundreds(positive_integer):
-    """Converts integers that have place value up to hundreds into roman numeral.
+def hundreds_romannumeral(positive_integer):
+    """Convert integers that have place value up to hundreds into roman numeral.
 
     :param positive_integer: a positive integer <= 999
     :precondition: the integer passed is positive and has a maximum of 3 place values
     :postcondition: produces correct roman numeral representation of integer passed
     :return: roman numeral representation of integer
 
-    >>> romannumeral_upto_hundreds(1)
+    >>> hundreds_romannumeral(1) #minimum
     'I'
-    >>> romannumeral_upto_hundreds(999)
+    >>> hundreds_romannumeral(999) #maximum
     'CMXCIX'
-    >>> romannumeral_upto_hundreds(6)
+    >>> hundreds_romannumeral(6)
     'VI'
-    >>> romannumeral_upto_hundreds(54)
+    >>> hundreds_romannumeral(54)
     'LIV'
-    >>> romannumeral_upto_hundreds(483)
+    >>> hundreds_romannumeral(483)
     'CDLXXXIII'
     """
     roman_number = ""
-    int_iterative = reverse_digits_iterative(positive_integer)
+    # turn input number into a list of its digits, reversed
+    digits_iterative = list(reversed([int(digit) for digit in str(positive_integer)]))
     for place_value in range(len(str(positive_integer))):
-        roman_number = romannumeral_1to9_loop(int_iterative[place_value], place_value) + roman_number
+        roman_number = romannumeral_1to9_loop(digits_iterative[place_value], place_value) + roman_number
     return roman_number
 
 
 def romannumeral(positive_int):
-    """Converts integers from [1, 10_000] into roman numerals.
+    """Convert integers from [1, 10_000] into roman numerals.
 
     :param positive_int: a positive integer [1, 10_000]
     :precondition: integer passed must be within range of 1 - 10_000
     :postcondition: produce correct roman numeral of integer
     :return: roman numeral representation of integer
 
-    >>> romannumeral(1)
+    >>> romannumeral(1) # minimum
     'I'
-    >>> romannumeral(10000)
+    >>> romannumeral(10000) # maximum
     'MMMMMMMMMM'
     >>> romannumeral(4444)
     'MMMMCDXLIV'
@@ -192,7 +177,7 @@ def romannumeral(positive_int):
     else:
         thousands_digit = positive_int // 1000
         return romannumeral_tally(thousands_digit, 3) + \
-            romannumeral_upto_hundreds(positive_int - thousands_digit * 1000)
+            hundreds_romannumeral(positive_int - thousands_digit * 1000)
 
 
 def main():
