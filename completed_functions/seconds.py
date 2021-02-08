@@ -26,22 +26,22 @@ def seconds(total_seconds):
     Test each converstion works.
     >>> seconds(0)
     [0, 0, 0, 0, 0]
+    >>> seconds(59)
+    [0, 0, 0, 0, 59]
     >>> seconds(60)
     [0, 0, 0, 1, 0]
+    >>> seconds(2_345)
+    [0, 0, 0, 39, 5]
     >>> seconds(3_600)
     [0, 0, 1, 0, 0]
+    >>> seconds(74_390)
+    [0, 0, 20, 39, 50]
     >>> seconds(86_400)
     [0, 1, 0, 0, 0]
-
-    Test random cases.
-    >>> seconds(65)
-    [0, 0, 0, 1, 5]
-    >>> seconds(3630)
-    [0, 0, 1, 0, 30]
     >>> seconds(112_320)
     [0, 1, 7, 12, 0]
-    >>> seconds(1_757_773)
-    [2, 6, 8, 16, 13]
+    >>> seconds(604_800)
+    [0, 1, 0, 0, 0]
     >>> seconds(6_471_029)
     [10, 4, 21, 30, 29]
     """
