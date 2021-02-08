@@ -28,13 +28,23 @@ place value to the GET_ROMANNUMERAL function until the end and return itself to 
 automation, the program will loop itself until all digits have been translated properly.
 
 ### 2. seconds.py
-**Decomposition:**
+**Decomposition:** The seconds function has been decomposed into two parts. First, a set-up portion (all in white), 
+which defines all the conversion values needed, the format of the conversion, and the output set. Second, the loop 
+portion (in purple), which contains an automation to simply convert the total seconds.
 
-**Pattern Matching:**
+**Pattern Matching:** To convert the total_seconds each time, there is a pattern of dividing the total seconds by a
+conversion number each time--starting from the largest value all the way to the smallest one. This pattern matching
+is the foundation of the automation aspect of this function.
 
-**Abstraction:**
+**Abstraction:** In this function, it is not necessary to save the remaining total seconds each time we complete a
+conversion, because we will just divide this number by the next conversion. Thus, within the loop, we can update and
+re-assign total_seconds each time to the new remainder of total_seconds divided by the last conversion--abstracting away
+the need to store the original total_seconds because we will no longer need it as wel convert!
 
-**Algorithms/Automation:**
+**Algorithms/Automation:** As mentioned above, the pattern that each time we reach a conversion, we will have to divide,
+allows a loop to be used to automate the process of iterating through dividing, storing a new total_seconds, and
+appending the conversion to the output with each conversion. Through the use of the conversion_list, seconds goes through each conversion and completes the same three
+tasks with each conversion until it reaches the end.
 
 ### 3. compoundinterest.py
 **Decomposition:**
