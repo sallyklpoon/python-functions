@@ -48,19 +48,17 @@ def roundoff_pennies(total_dollars):
     1000.0
     >>> roundoff_pennies(1023.29)
     1023.3
+    >>> roundoff_pennies(698.40)
+    698.4
     """
     hundredths = int(str(total_dollars)[-1])
     if str(total_dollars)[-2] == ".":
         # Adjust for the stripped 0 at the end if total_dollars ends with 0
         # ex. inputted total_dollars 12.50 will become 12.5
         return total_dollars
-    elif hundredths % 5 == 0:
-        return total_dollars
     elif hundredths in range(1, 3):
         return round(total_dollars, 1)
-    elif hundredths in range(3, 5):
-        return round(total_dollars + round((0.05 - hundredths * 10 ** -2), 2), 2)
-    elif hundredths in range(6, 8):
+    elif hundredths in range(3, 8):
         return round(total_dollars + round((0.05 - hundredths * 10 ** -2), 2), 2)
     else:  # hundredths in range(8, 10)
         return round(total_dollars + round((.10 - hundredths * 10 ** -2), 2), 2)
@@ -103,6 +101,8 @@ def moneychanger(total_dollars):
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     >>> moneychanger(587.34)
     [5, 1, 1, 1, 1, 1, 0, 1, 1, 0]
+    >>> moneychanger(688.40)
+    [6, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     >>> moneychanger(999.99)
     [10, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     """
