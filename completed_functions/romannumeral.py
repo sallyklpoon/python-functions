@@ -123,22 +123,32 @@ def romannumeral(positive_int):
 
     >>> romannumeral(1) # minimum
     'I'
-    >>> romannumeral(10000) # maximum
-    'MMMMMMMMMM'
+    >>> romannumeral(4)
+    'IV'
+    >>> romannumeral(9)
+    'IX'
+    >>> romannumeral(99)
+    'XCIX'
+    >>> romannumeral(100)
+    'C'
+    >>> romannumeral(499)
+    'CDXCIX'
+    >>> romannumeral(500)
+    'D'
+    >>> romannumeral(940)
+    'CMXL'
+    >>> romannumeral(999)
+    'CMXCIX'
+    >>> romannumeral(1000)
+    'M'
+    >>> romannumeral(1049)
+    'MXLIX'
     >>> romannumeral(4444)
     'MMMMCDXLIV'
-    >>> romannumeral(5555)
-    'MMMMMDLV'
     >>> romannumeral(9999)
     'MMMMMMMMMCMXCIX'
-    >>> romannumeral(3)
-    'III'
-    >>> romannumeral(82)
-    'LXXXII'
-    >>> romannumeral(354)
-    'CCCLIV'
-    >>> romannumeral(6789)
-    'MMMMMMDCCLXXXIX'
+    >>> romannumeral(10_000) # maximum
+    'MMMMMMMMMM'
     """
     if positive_int == 10_000:
         return romannumeral_power10s[3] * 10
