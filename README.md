@@ -103,13 +103,19 @@ letters to numbers on all phone numbers!
 using a for-loop in PHONE() (in purple).
 
 ### 6. leapyears.py
-**Decomposition:**
+**Decomposition:** This module has been broken down into a main function, LEAPYEARS() and a helper function imported
+from calendar LEAPDAYS(). LEAPDAYS() is a function that will find leap years within a given range, we simply need to
+send the correct lower_bound and upper_bound (+ 1 to make sure upper_bound is included) to that function.
 
-**Pattern Matching:**
+**Pattern Matching:** Since there is a regular pattern to finding leap years (year is divisible by 4, 100, and 400),
+any range of years as long as lower bound is less than or equal to upper bound, will be able to use this same LEAPDAYS()
+pattern to determine if it is a leap year.
 
-**Abstraction:**
+**Abstraction:** This function can be generalized to any lower and upper bound years as long as lower bound is less
+than or equal to upper bound.
 
-**Algorithms/Automation:**
+**Algorithms/Automation:** Since LEAPYEARS() is used, the process of algorithms to find leap years within a given
+range of years has been automated by indirection to this helper function. It is not necessary in our code to use diff
 
 ### 7. eratosthenes.py
 **Decomposition:**
