@@ -111,9 +111,10 @@ def moneychanger(total_dollars):
     output_change = []
     total_dollars = roundoff_pennies(total_dollars)
     for change_value in canadian_change:
-        output_change.append(trunc(total_dollars // change_value))
-        total_dollars = round((((total_dollars / change_value)
-                                - (total_dollars // change_value)) * change_value), 2)
+        change_amount = trunc(total_dollars // change_value)
+        output_change.append(change_amount)
+        total_dollars = round(((total_dollars / change_value
+                                - change_amount) * change_value), 2)
     return output_change
 
 
