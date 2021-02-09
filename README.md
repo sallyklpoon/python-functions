@@ -118,13 +118,22 @@ than or equal to upper bound.
 range of years has been automated by indirection to this helper function. It is not necessary in our code to use diff
 
 ### 7. eratosthenes.py
-**Decomposition:**
+**Decomposition:** This function can be broken down into 3 parts. An assigning and setup portion (in white), a large
+for-loop (in blue) that may have values to use in a nested for loop (in yellow).
 
-**Pattern Matching:**
+**Pattern Matching:** Using Eratosthenes method, we check each number to ask if it is a prime number. Starting from
+2 until the square root of the upper bound, we go through the original list, cross off numbers that are not
+the current evaluating number and are divisible by the current evaluating number until we reach the end of the original
+number list we are working with. We then repeat this step with the next number in the evaluating list all the way until
+we reach the end of evaluating numbers list.
 
-**Abstraction:**
+**Abstraction:** Eratosthenes' method to get prime numbers within a range of numbers works and is applicable to any
+range of numbers. This function, too, based on the method, can apply to any range of numbers.
 
-**Algorithms/Automation:**
+**Algorithms/Automation:** The process of comparing each number in an original list with an evaluating number has been 
+automated. This is great because we do not need to generate a unique list of evaluating numbers each time we have a
+different upper bound passed. Instead, the evaluating list is automatically created and we will flip through each
+evaluating number after we've checked, removed, and exhausted the original number list we are working from.
 
 ### 8. moneychanger.py
 **Decomposition:**
