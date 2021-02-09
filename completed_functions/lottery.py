@@ -10,7 +10,7 @@ For unit test, run test_lottery.py
 """
 
 from random import sample
-import doctest # See test lottery for unit test
+import doctest  # See test lottery for unit test
 
 
 def lottery():
