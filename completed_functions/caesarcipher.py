@@ -136,33 +136,31 @@ def caesarcipher(message, encode, shift):
                     If encode is False, accurately decrypt given message (revert shift)
     :return: string of ciphered message
 
-    Test no shift.
-    >>> caesarcipher("Will this 1 encode?", True, 0)
-    'Will this 1 encode?'
-    >>> caesarcipher("Will this 1 decode?", False, 0)
-    'Will this 1 decode?'
+    Test empty string.
+    >>> caesarcipher("", True, 3)
+    ''
+    >>> caesarcipher("", False, 0) #
+    ''
 
-    Test string.
-    >>> caesarcipher("", True, 2) # empty, encode, positive shift
-    ''
-    >>> caesarcipher("", False, -4) # empty, decrypt, negative shift
-    ''
-    >>> caesarcipher("$@- encODE thIS 123!", True, 2) # non-empty, encode, positive shift
-    '$@- gpeQFG vjKU 345!'
-    >>> caesarcipher("$@- gpeQFG vjKU 345!", False, 2) # non-empty, decrypt, positive shift
-    '$@- encODE thIS 123!'
-    >>> caesarcipher("a laZy f0x ^&#", True, -12) #non-empty, encode, negative shift
-    'o zoNm t8l ^&#'
-    >>> caesarcipher("o zoNm t8l ^&#", False, -12) #non-empty, decrypt, negative shift
-    'a laZy f0x ^&#'
-    >>> caesarcipher("U5l?U7HkHta0=&rB", True, 356) #non-empty, encrypt, extreme positive shift
-    'M1d?M3ZcZls6=&jT'
-    >>> caesarcipher("M1d?M3ZcZls6=&jT", False, 356) #non-empty, decrypt, extreme positive shift
-    'U5l?U7HkHta0=&rB'
-    >>> caesarcipher("7nkT%HpA?jXLpWDt", True, -999) #non-empty, encrypt, extreme negative shift
-    '8czI%WeP?yMAeLSi'
-    >>> caesarcipher("8czI%WeP?yMAeLSi", False, -999) #non-empty, decrypt, extreme negative shift
-    '7nkT%HpA?jXLpWDt'
+    Test filled string.
+    >>> caesarcipher("$-%_^ &@   ", False, 4)
+    '$-%_^ &@   '
+    >>> caesarcipher("123", True, 3)
+    '456'
+    >>> caesarcipher("123", True, 26)
+    '789'
+    >>> caesarcipher("ABC", True, 3)
+    'DEF'
+    >>> caesarcipher("ABC", True, 40)
+    'OPQ'
+    >>> caesarcipher("T4L-2G9", True, 103)
+    'S7K-5F2'
+    >>> caesarcipher("T4L-2G9", True, 0)
+    'T4L-2G9'
+    >>> caesarcipher("H3ll0, wo4ld!!", False, -6)
+    'N9rr6, cu0rj!!'
+    >>> caesarcipher("H3ll0, wo4ld!!", False, -54)
+    'J7nn4, yq8nf!!'
     """
     output_translation = ""
     if encode:
@@ -177,6 +175,7 @@ def caesarcipher(message, encode, shift):
 def main():
     """Execute the program."""
     doctest.testmod(verbose=True)
+    print(caesarcipher("T4L-2G9", True, 103))
 
 
 if __name__ == '__main__':
