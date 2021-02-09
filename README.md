@@ -145,13 +145,23 @@ evaluating number after we've checked, removed, and exhausted the original numbe
 **Algorithms/Automation:**
 
 ### 9. dijkstra.py
-**Decomposition:**
+**Decomposition:** The DIJKSTRA() function can be broken into three different parts. First, there is a process of
+counting the number of each colour there is and creating a string of these tallied colours. The second part is forming
+a list out of these elements through the helpful split method to turn strings quickly into a list. Finally, the third 
+portion is a loop to move each of the elements in this new formed tally list to the original list which has been 
+cleared (in orange).
 
-**Pattern Matching:**
+**Pattern Matching:** Since we are grouping colours all together, we can simply count and write however many times each
+colour appears in the original list. Tally it up by writing the colour x number of times (x being the total count).
+Finally, we just need to slide these elements into the original passed list and we are good ot go.
 
-**Abstraction:**
+**Abstraction:** This function will work for any number of elements in a list containing "red", "white", and "blue".
+It isn't important that shuffle the elements in the original list around (which could end up being more work and more
+prone to errors). Instead, I chose to create a temporary new list quickly and easily by counting.
 
-**Algorithms/Automation:**
+**Algorithms/Automation:** The process of appending all the elements in the tally list to the original list has been
+ automated so that any length of list can adapt easily in the program. Using this for-loop (in orange), we do not need 
+to monitor when we stop appending elements because the loop will exit once we reach the end of the tally list.
 
 ### 10. caesarcipher.py
 **Decomposition:**
