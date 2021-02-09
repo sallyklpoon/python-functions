@@ -22,18 +22,18 @@ def leapyears(lower_bound, upper_bound):
     :postcondition: produce the correct number of leap years within the given range
     :return: an integer representing the number of leap years within the given range
 
-    >>> leapyears(1, 1)
-    0
-    >>> leapyears(2019, 2020)
-    0
     >>> leapyears(2021, 2021)
     0
-    >>> leapyears(1921, 2021)
-    25
-    >>> leapyears(1, 2020)
-    489
+    >>> leapyears(2004, 2004)
+    1
+    >>> leapyears(1001, 1009)
+    2
+    >>> leapyears(1897, 1903)
+    0
+    >>> leapyears(2000, 2020)
+    6
     """
-    return calendar.leapdays(lower_bound, upper_bound)
+    return calendar.leapdays(lower_bound, upper_bound + 1)
 
 
 def main():
