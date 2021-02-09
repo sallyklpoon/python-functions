@@ -3,11 +3,14 @@ Sally Poon; A01232177
 Date completed: 02-06-2021
 
 This module contains the function caesarcipher and its helper function, cipher_character.
+
 An import of ascii_lowercase, ascii_uppercase, and digits from the library string
 is required.
 """
-import doctest
+
 from string import ascii_lowercase, ascii_uppercase, digits
+
+import doctest
 
 
 def cipher_character(character, shift):
@@ -44,18 +47,12 @@ def cipher_character(character, shift):
     'X'
     >>> cipher_character("0", -3)
     '7'
-    >>> cipher_character("a", 548) # positive shift needing to loop
+    >>> cipher_character("a", 548) # large shift
     'c'
     >>> cipher_character("A", 548)
     'C'
     >>> cipher_character("0", 548)
     '8'
-    >>> cipher_character("a", -548) # negative shift needing to loop
-    'y'
-    >>> cipher_character("A", -548)
-    'Y'
-    >>> cipher_character("0", -548)
-    '2'
 
     Test last characters of each uppercase, lowercase, and digit group.
     >>> cipher_character("z", 6) # positive shift loop
@@ -70,13 +67,7 @@ def cipher_character(character, shift):
     'Q'
     >>> cipher_character("9", -5)
     '4'
-    >>> cipher_character("z", 336) # positive shift needing to loop
-    'x'
-    >>> cipher_character("Z", 336)
-    'X'
-    >>> cipher_character("9", 336)
-    '5'
-    >>> cipher_character("z", -336) # negative shift needing to loop
+    >>> cipher_character("z", -336) # large shift
     'b'
     >>> cipher_character("Z", -336)
     'B'
@@ -96,18 +87,12 @@ def cipher_character(character, shift):
     'K'
     >>> cipher_character("7", -5)
     '2'
-    >>> cipher_character("n", 230) # positive shift needing to loop
+    >>> cipher_character("n", 230) # large shift
     'j'
     >>> cipher_character("R", 230)
     'N'
     >>> cipher_character("4", 230)
     '4'
-    >>> cipher_character("s", -1043) # negative shift needing to loop
-    'p'
-    >>> cipher_character("L", -1043)
-    'I'
-    >>> cipher_character("8", -1043)
-    '5'
     """
     if character in ascii_uppercase:
         return ascii_uppercase[(ascii_uppercase.index(character) + shift) % 26]
@@ -123,18 +108,18 @@ def caesarcipher(message, encode, shift):
     """Encode/Decrypt a message using Caesar Cipher.
 
     Caesar Cipher shifts each character a fixed amount of places up or down
-    the alphabet and number line [0, 9].
+    the alphabet and number line [0, 9]. When encode is True, we apply the specified shift,
+    when encode is False, we revert the shift.
 
     :param message: any string
     :param encode: a boolean
     :param shift: any number
     :precondition: message parameter must be a string
-    :precondition: encode parameter must be True or False.
-                   True asks function to encode, False asks function to decrypt
+    :precondition: encode parameter must be Boolean.
     :precondition: shift parameter must be an integer
     :postcondition: If encode is True, accurately encode given message (apply shift)
                     If encode is False, accurately decrypt given message (revert shift)
-    :return: string of ciphered message
+    :return: string of ciphered (encoded or decrypted) message
 
     Test empty string.
     >>> caesarcipher("", True, 3)
