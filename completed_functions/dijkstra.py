@@ -19,42 +19,22 @@ def dijkstra(colours_given):
     :postcondition: modify the list accurately to have all elements in order of "red", "white", then "blue"
     :return: nothing, modifies original list
 
-    >>> dutch = ["red", "white", "blue"]
+    >>> dutch = ["red"]
     >>> dijkstra(dutch)
     >>> print(dutch)
-    ['red', 'white', 'blue']
-    >>> dutch = ["red", "blue", "white"]
+    ['red']
+    >>> dutch = ["blue", "blue", "blue"]
     >>> dijkstra(dutch)
     >>> print(dutch)
-    ['red', 'white', 'blue']
-    >>> dutch = ["blue", "white", "red"]
+    ['blue', 'blue', 'blue']
+    >>> dutch = ["red", "red", "white", "white", "blue", "blue"]
     >>> dijkstra(dutch)
     >>> print(dutch)
-    ['red', 'white', 'blue']
-    >>> dutch = ["white", "red", "blue"]
+    ['red', 'red', 'white', 'white', 'blue', 'blue']
+    >>> dutch = ["red", "blue", "red", "white", "red", "blue"]
     >>> dijkstra(dutch)
     >>> print(dutch)
-    ['red', 'white', 'blue']
-    >>> dutch = ["blue", "blue", "red", "blue", "red", "red"]
-    >>> dijkstra(dutch)
-    >>> print(dutch)
-    ['red', 'red', 'red', 'blue', 'blue', 'blue']
-    >>> dutch = ["red", "white", "white", "red", "red", "white"]
-    >>> dijkstra(dutch)
-    >>> print(dutch)
-    ['red', 'red', 'red', 'white', 'white', 'white']
-    >>> dutch = ["white", "blue", "blue", "blue", "white", "blue"]
-    >>> dijkstra(dutch)
-    >>> print(dutch)
-    ['white', 'white', 'blue', 'blue', 'blue', 'blue']
-    >>> dutch = ["white", "red", "red", "white", "red", "red"]
-    >>> dijkstra(dutch)
-    >>> print(dutch)
-    ['red', 'red', 'red', 'red', 'white', 'white']
-    >>> dutch = ["white", "blue", "blue", "red", "white", "red", "white"]
-    >>> dijkstra(dutch)
-    >>> print(dutch)
-    ['red', 'red', 'white', 'white', 'white', 'blue', 'blue']
+    ['red', 'red', 'red', 'white', 'blue', 'blue']
     """
     tally = "red." * colours_given.count("red") \
             + "white." * colours_given.count("white") \
