@@ -63,13 +63,23 @@ structured to automate the process of calculating compound interest. Because of 
 automate the process of calculating compoundinterest for varying amounts that fit within the preconditions.
 
 ### 4. lottery.py
-**Decomposition:**
+**Decomposition:** This function is decomposed into two parts. One part is a helper function called SAMPLE() imported 
+from the random library. This function will produce 6 random and unique numbers. The second part of this function is
+the main function, which will take the result of SAMPLE() and return it sorted.
 
-**Pattern Matching:**
+**Pattern Matching:** Since we must have number that is within [1, 49], my computational thinking around the SAMPLE()
+function will draw from the same range of [1, 49] each time without replacement and each time the number
+is drawn, it will be added to the result list, and we will have to decrease the number of objects we need by 1. These
+steps contribute to the automation of the function.
 
-**Abstraction:**
+**Abstraction:** There is no need to create a specific function to random sample, but trusting that the black box of
+SAMPLE() will, undoubtedly, return 6 unique, random numbers within a given range. Using this helper function, we can
+easily change the length of the list we want and the range.
 
-**Algorithms/Automation:**
+**Algorithms/Automation:** In my 'guess' of the black box in random SAMPLE(), there is a process of automation where a
+number will continue to be drawn until we reach the end of the specified k number of elements we want. In addition to
+that, since we've already asked SAMPLE() to draw 6 elements from the range of [1, 49], the LOTTERY() function literally
+does not need any parameters to be passed as arguments. Calling LOTTERY() by itself will provide an appropriate result.
 
 ### 5. phone.py
 **Decomposition:**
