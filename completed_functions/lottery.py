@@ -10,6 +10,7 @@ For unit test, run test_lottery.py
 """
 
 from random import sample
+import doctest # See test lottery for unit test
 
 
 def lottery():
@@ -24,8 +25,10 @@ def lottery():
 
 
 def main():
-    print(lottery())
+    """Execute the program."""
+    doctest.testmod(verbose=True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    # Run main() if module being executed as a program
     main()
