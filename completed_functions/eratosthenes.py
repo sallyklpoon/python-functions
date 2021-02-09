@@ -20,10 +20,14 @@ def eratosthenes(upper_bound):
     :postcondition: return a correct list of prime numbers up to upper_bound range
     :return: a list of prime numbers up to the upper_bound range
 
+    >>> eratosthenes(0)
+    []
     >>> eratosthenes(1)
     []
-    >>> eratosthenes(30)
-    [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    >>> eratosthenes(19)
+    [2, 3, 5, 7, 11, 13, 17, 19]
+    >>> eratosthenes(20)
+    [2, 3, 5, 7, 11, 13, 17, 19]
     >>> eratosthenes(100)
     [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
     """
