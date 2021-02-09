@@ -136,13 +136,32 @@ different upper bound passed. Instead, the evaluating list is automatically crea
 evaluating number after we've checked, removed, and exhausted the original number list we are working from.
 
 ### 8. moneychanger.py
-**Decomposition:**
+**Decomposition:** This module is broken into two separate functions. The first of which is the main, MONEYCHANGER()
+function, which does the work of compiling the output list, and the second is ROUNDOFF_PENNIES() function which does the
+job of rounding off pennies in order for the MONEYCHANGER() function to work smoothly without any snags.
 
-**Pattern Matching:**
+**Pattern Matching:** To calculate the least amount of change necessary, we have to work with from largest to smallest 
+numbers. Just like seconds conversion, any type of conversion will require the need to divide an original amount by a 
+conversion amount. This is shared across all the different currency values. In some ways, we can think of it as the 
+total_dollar amount needs to be passed from one conversion to the other, doing the same task of being division and 
+appending to an output list. The orange for-loop has been created to do exactly that as it goes down the list of 
+Canadian currency values.
 
-**Abstraction:**
+**Abstraction:** Aside from the fact that the MONEYCHANGE() function being able to be applied to any amount of money, I 
+used abstraction when it came down to rounding off pennies. Instead of having the program evaluate each 0.01, 0.02...
+0.10 decimal ending for total_dollars, I asked my program to look only at the hundredths decimal number--because this is
+all you need to determine whether to round up/down to the closest 5 or 0 cents. Note also that we only need to check 3 
+different cases:
+1. if the hundredths is '.', in which case, the total_dollar amount has a 0 decimal that Python has gotten rid of
+2. if the hundredths is in the range of 1 to 2, in which we round down to closest 0
+3. if the hundredths is in the range of 3 to 7, in which we round to 5 cents
 
-**Algorithms/Automation:**
+If it's none of the above cases, we assume we must round up to closest 10 cents!
+
+**Algorithms/Automation:** By use of pattern matching, I identified that we will have to roll through every conversion 
+using total_dollars. I've automated this process by use of the orange loop, which will pass and update the total_dollars
+amount down the list of different conversion values. The program will automatically end once total_dollars has been 
+passed through all the items in the canadian_currency list. 
 
 ### 9. dijkstra.py
 **Decomposition:** The DIJKSTRA() function can be broken into three different parts. First, there is a process of
