@@ -82,13 +82,25 @@ that, since we've already asked SAMPLE() to draw 6 elements from the range of [1
 does not need any parameters to be passed as arguments. Calling LOTTERY() by itself will provide an appropriate result.
 
 ### 5. phone.py
-**Decomposition:**
+**Decomposition:** Phone has been decomposed to use one other helper function that leads to two smaller, 'sub-functions'
+, if you will. First off the function phone itself will append translated characters to a new string for 
+translated_phone. If the character isn't a "-" character, then we will ask ALPHA_TO_NUMBER to get a translation result
+to append to the translated_phone number. To keep the functions short, this helper function will then send the
+alphanumeric character off to the right path for mapping translation. The 'sub-functions' the character will be mapped.
 
-**Pattern Matching:**
+**Pattern Matching:** Each alphanumeric character in the list will need to be looked at and will require the use of the 
+exact same steps for translation. Thus, I've used a for-loop to go through each character and have each of them be 
+evaluated using one shared process. 
 
-**Abstraction:**
+**Abstraction:** Instead of typing out each and every character for the numbers, I abstracted by use of declaring the
+mapped letters within each number right away. This helps not only with legibility, but also because ALPHA_TO_NUMBER()
+will check which list a character belongs to, I will not have to re-write each and every character tediously. Declaring
+the mapped letters up top also can permit other users importing to use these variables which are generally the mapped
+letters to numbers on all phone numbers!
 
-**Algorithms/Automation:**
+**Algorithms/Automation:** As mentioned in pattern matching, because each character in a phone number (other than 
+ the '-') needs to be looked at, I automated the process of flipping through each number until the end of the string
+using a for-loop in PHONE() (in purple).
 
 ### 6. leapyears.py
 **Decomposition:**
