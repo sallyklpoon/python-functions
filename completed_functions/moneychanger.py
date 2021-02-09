@@ -54,14 +54,14 @@ def roundoff_pennies(total_dollars):
     hundredths = int(str(total_dollars)[-1])
     if str(total_dollars)[-2] == ".":
         # Adjust for the stripped 0 at the end if total_dollars ends with 0
-        # ex. inputted total_dollars 12.50 will become 12.5
+        # ex. in Python, inputted total_dollars 12.50 will become 12.5
         return total_dollars
     elif hundredths in range(1, 3):
         return round(total_dollars, 1)
     elif hundredths in range(3, 8):
-        return round(total_dollars + round((0.05 - hundredths * 10 ** -2), 2), 2)
+        return round(total_dollars + (0.05 - hundredths * 10 ** -2), 2)
     else:  # hundredths in range(8, 10)
-        return round(total_dollars + round((.10 - hundredths * 10 ** -2), 2), 2)
+        return round(total_dollars + (.10 - hundredths * 10 ** -2), 2)
 
 
 def moneychanger(total_dollars):
@@ -101,7 +101,7 @@ def moneychanger(total_dollars):
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     >>> moneychanger(0.01)
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    >>> moneychanger(0.58)# return 2 quarters and a dime
+    >>> moneychanger(0.58)
     [0, 0, 0, 0, 0, 0, 0, 2, 1, 0]
     >>> moneychanger(188.40) #should return all 1’s in the list
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
