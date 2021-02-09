@@ -7,8 +7,6 @@ Module includes a function called moneychanger and roundoff_pennies.
     moneychanger will produce a list of change needed to cover a total dollar amount.
 
 This module requires the imported function trunc from Python's math library.
-
-Canadian_cash defines as a global list of cash amounts available in canadian currency.
 """
 import doctest
 from math import trunc
@@ -17,9 +15,9 @@ from math import trunc
 def roundoff_pennies(total_dollars):
     """Round out pennies from given dollar amount.
 
-    :param total_dollars: a float with up to 2 decimal points
+    :param total_dollars: a floating point number
     :precondition: total_dollars value is a floating point >= 0.00 with 2 decimals
-    :postcondition: return the total_dollars value rounded off without pennies (to the closest multiple of 5)
+    :postcondition: return the total_dollars value rounded off without pennies (to the closest multiple of 5 cents)
     :return: a floating point of dollar amount rounded to closest nickel, dime, or dollar to 2 decimal places
 
     >>> roundoff_pennies(0.00)
@@ -61,13 +59,14 @@ def roundoff_pennies(total_dollars):
     elif hundredths in range(3, 8):
         return round(total_dollars + (0.05 - hundredths * 10 ** -2), 2)
     else:  # hundredths in range(8, 10)
-        return round(total_dollars + (.10 - hundredths * 10 ** -2), 2)
+        return round(total_dollars + (0.10 - hundredths * 10 ** -2), 2)
 
 
 def moneychanger(total_dollars):
-    """Produce list of change in Canadian currency to cover total_dollars amount.
+    """Produce list of change in Canadian currency to cover total_dollars amount with the fewest of each bill
+    and coin.
 
-    :param total_dollars: a positive floating point number up to 2 decimals places
+    :param total_dollars: a floating point number
     :precondition: total_dollars value is a floating point >= 0.00 with up to 2 decimal places
     :postcondition: return accurate breakdown of Canadian currency to cover the total_dollars amount
                     in a list from largest currency amount to smallest.
