@@ -99,12 +99,14 @@ def moneychanger(total_dollars):
     Test other cases to combine
     >>> moneychanger(0.00)
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    >>> moneychanger(587.34)
-    [5, 1, 1, 1, 1, 1, 0, 1, 1, 0]
-    >>> moneychanger(688.40)
-    [6, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    >>> moneychanger(999.99)
-    [10, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    >>> moneychanger(0.01)
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    >>> moneychanger(0.58)# return 2 quarters and a dime
+    [0, 0, 0, 0, 0, 0, 0, 2, 1, 0]
+    >>> moneychanger(188.40) #should return all 1’s in the list
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    >>> moneychanger(999_999_999.99)
+    [10000000, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     """
     canadian_change = [100, 50, 20, 10, 5, 2, 1, 0.25, 0.10, 0.05]
     output_change = []
