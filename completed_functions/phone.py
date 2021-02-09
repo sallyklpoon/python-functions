@@ -22,8 +22,6 @@ mapped_6 = ["M", "N", "O"]
 mapped_7 = ["P", "Q", "R", "S"]
 mapped_8 = ["T", "U", "V"]
 mapped_9 = ["W", "X", "Y", "Z"]
-mapped_2to5 = mapped_2 + mapped_3 + mapped_4 + mapped_5
-mapped_6to9 = mapped_6 + mapped_7 + mapped_8 + mapped_9
 
 
 def map_2to5(letter):
@@ -145,10 +143,12 @@ def alpha_to_number(character):
     >>> alpha_to_number("9")
     '9'
     """
-    if character.upper() in mapped_2to5:
-        return map_2to5(character.upper())
-    if character.upper() in mapped_6to9:
-        return map_6to9(character.upper())
+    mapped_2to5 = mapped_2 + mapped_3 + mapped_4 + mapped_5
+    mapped_6to9 = mapped_6 + mapped_7 + mapped_8 + mapped_9
+    if character in mapped_2to5:
+        return map_2to5(character)
+    if character in mapped_6to9:
+        return map_6to9(character)
     else:  # else: alpha_number is a number
         return character
 
@@ -158,7 +158,7 @@ def phone(input_phone):
 
     :param input_phone: a string
     :precondition: input_string is a string with format XXX-XXX-XXXX where
-                   X is an alphanumeric character
+                   X is a number or an uppercase letter character
     :postcondition: correctly translate a phone number with alphabetical
                     numbers to its numerical equivalent XXX-XXX-XXXX format
                     where X is an integer
@@ -166,16 +166,16 @@ def phone(input_phone):
 
     >>> phone("604-123-4567")
     '604-123-4567'
-    >>> phone("try-the-logi")
-    '879-843-5644'
+    >>> phone("AAA-AAA-AAAA")
+    '222-222-2222'
+    >>> phone("777-777-7777")
+    '777-777-7777'
     >>> phone("TRY-THE-LOGI")
-    '879-843-5644'
-    >>> phone("T7y-tH3-LoG4")
-    '879-843-5644'
-    >>> phone("t7Y-Th3-lOg4")
     '879-843-5644'
     >>> phone("555-GET-FOOD")
     '555-438-3663'
+    >>> phone("A2B-6J9-R3P1")
+    '222-659-7371'
     """
     translated_phone = ""
     for character in input_phone:
