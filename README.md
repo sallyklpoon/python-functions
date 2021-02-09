@@ -47,13 +47,20 @@ appending the conversion to the output with each conversion. Through the use of 
 tasks with each conversion until it reaches the end.
 
 ### 3. compoundinterest.py
-**Decomposition:**
+**Decomposition:** Compound interest can be decomposed based on the order of operations. First, get 2 operands (in blue)
+, which can happen simultaneously, then bring operand1 to the power of operand2. Finally, the last step is to multiply
+that result by the principal.
 
-**Pattern Matching:**
+**Pattern Matching:** Since parenthesis are and exponents are the first to be executed in PEDMAS, I recognized that
+these two processes must go first before the final multiplication.
 
-**Abstraction:**
+**Abstraction:** This function will calculate accrued amount of money after with the given parameters. Being a program
+that is written based on a formula--this is a form of abstraction! Formulas is a fact or rule written to apply to the
+general process of finding the value of something.
 
-**Algorithms/Automation:**
+**Algorithms/Automation:** This function prevents the need to manually calculate by hand using PEDMAS, it has been
+structured to automate the process of calculating compound interest. Because of it being based off a formula, we can
+automate the process of calculating compoundinterest for varying amounts that fit within the preconditions.
 
 ### 4. lottery.py
 **Decomposition:**
