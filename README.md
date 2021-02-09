@@ -132,7 +132,7 @@ range of numbers. This function, too, based on the method, can apply to any rang
 
 **Algorithms/Automation:** The process of comparing each number in an original list with an evaluating number has been 
 automated. This is great because we do not need to generate a unique list of evaluating numbers each time we have a
-different upper bound passed. Instead, the evaluating list is automatically created and we will flip through each
+different upper bound passed. Instead, the evaluating list is automatically created, and we will flip through each
 evaluating number after we've checked, removed, and exhausted the original number list we are working from.
 
 ### 8. moneychanger.py
@@ -153,7 +153,7 @@ cleared (in orange).
 
 **Pattern Matching:** Since we are grouping colours all together, we can simply count and write however many times each
 colour appears in the original list. Tally it up by writing the colour x number of times (x being the total count).
-Finally, we just need to slide these elements into the original passed list and we are good ot go.
+Finally, we just need to slide these elements into the original passed list, and we are good ot go.
 
 **Abstraction:** This function will work for any number of elements in a list containing "red", "white", and "blue".
 It isn't important that shuffle the elements in the original list around (which could end up being more work and more
@@ -164,12 +164,23 @@ prone to errors). Instead, I chose to create a temporary new list quickly and ea
 to monitor when we stop appending elements because the loop will exit once we reach the end of the tally list.
 
 ### 10. caesarcipher.py
-**Decomposition:**
+**Decomposition:** This module is broken up into one main function which uses a helper function to do a smaller task.
+First, the main CAESARCIPHER() function will accept all the necessary values, then evaluate encode Boolean to determine 
+if we need to modify the shift (not submitted shift if encode is false) before sending it to the cipher_character 
+translator. The CIPHER_CHARACTER() is the second part. It will convert each of the characters based on the shift passed
+from CAESARCIPHER().
 
-**Pattern Matching:**
+**Pattern Matching:** Both encoding and decrypting is the same process. We need to look at each character and shift a 
+given number of values; however, one is applying the shift and one is taking away the shift. This pattern allows us to 
+use a similar loop between encoding and decrypt as seen in the blue and purple loop (they resemble each other). It also
+ encourages us to use abstraction.
 
-**Abstraction:**
+**Abstraction:** Since both encoding and decrypting have a similar process, I used one helper function only, which does 
+ciphering by accepting the corrected shift from the CAESARCIPHER() function and using it to determine the 
+character's converted character. We do not need a specific function for each encoding and decrypting.
 
-**Algorithms/Automation:**
+**Algorithms/Automation:** Since the caesar cipher will require us to translate each and every character, a for-loop is 
+extremely helpful in automating the process of passing each character to CIPHER_CHARACTER(). Using these loops, the 
+program will automatically end and return the result once all characters in the string has been looked at.
 
 ### *** Any comments you would like me to read before examining your code must go above this line ***
