@@ -39,11 +39,12 @@ is the foundation of the automation aspect of this function.
 **Abstraction:** In this function, it is not necessary to save the remaining total seconds each time we complete a
 conversion, because we will just divide this number by the next conversion. Thus, within the loop, we can update and
 re-assign total_seconds each time to the new remainder of total_seconds divided by the last conversion--abstracting away
-the need to store the original total_seconds because we will no longer need it as wel convert!
+the need to store the original total_seconds because we will no longer need it after each iteration of converting!
 
-**Algorithms/Automation:** As mentioned above, the pattern that each time we reach a conversion, we will have to divide,
-allows a loop to be used to automate the process of iterating through dividing, storing a new total_seconds, and
-appending the conversion to the output with each conversion. Through the use of the conversion_list, seconds goes through each conversion and completes the same three
+**Algorithms/Automation:** As mentioned above, each time we reach a conversion divide the previous value of
+ total seconds by the current conversion. I've used a loop to automate the process of iterating through dividing, 
+storing a new total_seconds, and appending the conversion to the output with each conversion. 
+Through the use of the conversion_list, seconds goes through each conversion and completes the same three
 tasks with each conversion until it reaches the end.
 
 ### 3. compoundinterest.py
@@ -51,12 +52,12 @@ tasks with each conversion until it reaches the end.
 , which can happen simultaneously, then bring operand1 to the power of operand2. Finally, the last step is to multiply
 that result by the principal.
 
-**Pattern Matching:** Since parenthesis are and exponents are the first to be executed in PEDMAS, I recognized that
+**Pattern Matching:** Since parenthesis and exponents are the first to be executed in PEDMAS, I recognized that
 these two processes must go first before the final multiplication.
 
-**Abstraction:** This function will calculate accrued amount of money after with the given parameters. Being a program
-that is written based on a formula--this is a form of abstraction! Formulas is a fact or rule written to apply to the
-general process of finding the value of something.
+**Abstraction:** This function will calculate accrued amount of money with the given parameters. Being a program
+that is written based on a formula--this is a form of abstraction! A formula is a fact or rule written to apply to the
+general process of finding the value of something, so it is in a sense a form of abstraction.
 
 **Algorithms/Automation:** This function prevents the need to manually calculate by hand using PEDMAS, it has been
 structured to automate the process of calculating compound interest. Because of it being based off a formula, we can
@@ -72,9 +73,10 @@ function will draw from the same range of [1, 49] each time without replacement 
 is drawn, it will be added to the result list, and we will have to decrease the number of objects we need by 1. These
 steps contribute to the automation of the function.
 
-**Abstraction:** There is no need to create a specific function to random sample, but trusting that the black box of
-SAMPLE() will, undoubtedly, return 6 unique, random numbers within a given range. Using this helper function, we can
-easily change the length of the list we want and the range.
+**Abstraction:** There is no need to create a new helper function to randomly select numbers.
+In this module, I blindly trust that the black box of SAMPLE() will, undoubtedly, return 6 unique, random numbers 
+within a given range. Using this helper function, we can easily change the length of the list we want, and the range
+by modifying the parameters passed to SAMPLE().
 
 **Algorithms/Automation:** In my 'guess' of the black box in random SAMPLE(), there is a process of automation where a
 number will continue to be drawn until we reach the end of the specified k number of elements we want. In addition to
@@ -86,7 +88,8 @@ does not need any parameters to be passed as arguments. Calling LOTTERY() by its
 , if you will. First off the function phone itself will append translated characters to a new string for 
 translated_phone. If the character isn't a "-" character, then we will ask ALPHA_TO_NUMBER to get a translation result
 to append to the translated_phone number. To keep the functions short, this helper function will then send the
-alphanumeric character off to the right path for mapping translation. The 'sub-functions' the character will be mapped.
+alphanumeric character off to the right path for mapping translation. The 'sub-functions' (MAP_2TO5 and MAP_6TO9)
+performs the task of mapping to the character to the correct number.
 
 **Pattern Matching:** Each alphanumeric character in the list will need to be looked at and will require the use of the 
 exact same steps for translation. Thus, I've used a for-loop to go through each character and have each of them be 
@@ -99,7 +102,7 @@ the mapped letters up top also can permit other users importing to use these var
 letters to numbers on all phone numbers!
 
 **Algorithms/Automation:** As mentioned in pattern matching, because each character in a phone number (other than 
- the '-') needs to be looked at, I automated the process of flipping through each number until the end of the string
+ the '-') needs to be looked at, I automated the process of 'flipping' through each number until the end of the string
 using a for-loop in PHONE() (in purple).
 
 ### 6. leapyears.py
@@ -115,7 +118,8 @@ pattern to determine if it is a leap year.
 than or equal to upper bound.
 
 **Algorithms/Automation:** Since LEAPYEARS() is used, the process of algorithms to find leap years within a given
-range of years has been automated by indirection to this helper function. It is not necessary in our code to use diff
+range of years has been automated by indirection to this helper function. It is not necessary in our code to use
+multiple if/else statements to calculate which years are leap years.
 
 ### 7. eratosthenes.py
 **Decomposition:** This function can be broken down into 3 parts. An assigning and setup portion (in white), a large
@@ -128,7 +132,7 @@ number list we are working with. We then repeat this step with the next number i
 we reach the end of evaluating numbers list.
 
 **Abstraction:** Eratosthenes' method to get prime numbers within a range of numbers works and is applicable to any
-range of numbers. This function, too, based on the method, can apply to any range of numbers.
+range of numbers. Thus, this function, based on the method, can also apply to any range of positive numbers.
 
 **Algorithms/Automation:** The process of comparing each number in an original list with an evaluating number has been 
 automated. This is great because we do not need to generate a unique list of evaluating numbers each time we have a
@@ -175,8 +179,9 @@ colour appears in the original list. Tally it up by writing the colour x number 
 Finally, we just need to slide these elements into the original passed list, and we are good ot go.
 
 **Abstraction:** This function will work for any number of elements in a list containing "red", "white", and "blue".
-It isn't important that shuffle the elements in the original list around (which could end up being more work and more
-prone to errors). Instead, I chose to create a temporary new list quickly and easily by counting.
+It isn't important that we pop and move the elements in the original list around (which could end up being more work 
+and more prone to errors). Instead, using abstract and creative thinking, I chose to create a temporary new list 
+quickly and easily by counting and adding these elements into the original list.
 
 **Algorithms/Automation:** The process of appending all the elements in the tally list to the original list has been
  automated so that any length of list can adapt easily in the program. Using this for-loop (in orange), we do not need 
@@ -198,7 +203,7 @@ use a similar loop between encoding and decrypt as seen in the blue and purple l
 ciphering by accepting the corrected shift from the CAESARCIPHER() function and using it to determine the 
 character's converted character. We do not need a specific function for each encoding and decrypting.
 
-**Algorithms/Automation:** Since the caesar cipher will require us to translate each and every character, a for-loop is 
+**Algorithms/Automation:** The caesar cipher will require us to translate each and every character. A for-loop is 
 extremely helpful in automating the process of passing each character to CIPHER_CHARACTER(). Using these loops, the 
 program will automatically end and return the result once all characters in the string has been looked at.
 
