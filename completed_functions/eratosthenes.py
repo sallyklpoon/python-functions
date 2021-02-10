@@ -1,5 +1,5 @@
 """
-Sally Poon A01232177
+Sally Poon; A01232177
 Date Completed: 02-06-2021
 
 This module contains a function that uses Eratosthenes method
@@ -8,8 +8,10 @@ of finding a list of prime numbers given a range from [0, n].
 This module requires the import of math.sqrt() and math.ceil() functions
 from the math library.
 """
-import doctest
+
 from math import sqrt, ceil
+
+import doctest
 
 
 def eratosthenes(upper_bound):
