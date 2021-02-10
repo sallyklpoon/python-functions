@@ -18,10 +18,10 @@ def seconds(total_seconds):
     minutes, and seconds in this ordered format.
 
     :param total_seconds: a positive integer
-    :precondition: a positive integer is submitted as the argument
-    :postcondition: calculate and produce list for the number of weeks, days,
+    :precondition: total_seconds is a positive integer
+    :postcondition: produce an accurate list for the number of weeks, days,
                     hours, minutes and seconds given total_seconds
-    :return: list of integers for [weeks, days, hours, minutes, seconds]
+    :return: list of integers for number of [weeks, days, hours, minutes, seconds] from total_seconds
 
     Test each converstion works.
     >>> seconds(0)
