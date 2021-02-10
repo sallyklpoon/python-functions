@@ -15,7 +15,7 @@ def dijkstra(colours_given):
     A solution to the Dijkstra problem.
 
     :param colours_given: a list of strings
-    :precondition: given list is a collection of string elements "red", "white", or "blue" only
+    :precondition: colours_given is a non-empty list of string elements "red", "white", or "blue" only
     :postcondition: modify the list accurately to have all elements in order of "red", "white", then "blue"
     :return: nothing, modifies original list
 
@@ -39,6 +39,7 @@ def dijkstra(colours_given):
     tally = "red." * colours_given.count("red") \
             + "white." * colours_given.count("white") \
             + "blue." * colours_given.count("blue")
+    # excluding last ".", split tally string into a list then clear original list
     dutch_colours = tally[:-1].split(".")
     colours_given.clear()
     for element in dutch_colours:
