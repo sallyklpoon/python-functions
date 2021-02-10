@@ -12,16 +12,16 @@ import doctest
 def compoundinterest(principal, interest_rate, compoundtimes_peryear, years_to_grow):
     """Calculate the amount of money in the account after specified number of years.
 
-    :param principal: any number
+    :param principal: a positive or negative float
     :param interest_rate: a positive or negative float
     :param compoundtimes_peryear: an integer
-    :param years_to_grow: a float
-    :precondition: principal must be a number that is positive or negative up to 2 decimal places
-    :precondition: interest_rate must be a positive or negative number
-    :precondition: compoundtimes_peryear must be an integer greater than 0
-    :precondition: years_to_grow must be a number greater than 0
+    :param years_to_grow: a positive float
+    :precondition: principal is a positive or negative float up to 2 decimal places
+    :precondition: interest_rate is a positive or negative float
+    :precondition: compoundtimes_peryear is an integer > 0
+    :precondition: years_to_grow must be a float > 0
     :postcondition: the accurate raw number of money accrued over the years will be calculated
-    :return: amount of money accrued in account as a float, raw number
+    :return: amount of money accrued in account as a raw float
 
     >>> compoundinterest(0, 0, 1, 0.1)
     0.0
@@ -34,7 +34,8 @@ def compoundinterest(principal, interest_rate, compoundtimes_peryear, years_to_g
     >>> compoundinterest(1000, 0.1, 100, 100) # principal and interest rate positive
     21916681.339054313
     """
-    accrued_money = principal * (1 + interest_rate / compoundtimes_peryear) ** (compoundtimes_peryear * years_to_grow)
+    accrued_money = principal * (1 + interest_rate / compoundtimes_peryear) \
+        ** (compoundtimes_peryear * years_to_grow)
     return accrued_money
 
 
