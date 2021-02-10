@@ -26,10 +26,10 @@ def get_romannumeral(digit, place_value):
     :param digit: an integer [1, 9]
     :param place_value: an integer [0, 2]
     :precondition: the positive digit belongs either in the ones, tens, or hundreds place
-                   of a complete integer and will be [1, 9]
-    :precondition: place_value must be [0, 2] within the placement of the complete integer
+                   of a complete integer and is one of [1, 9]
+    :precondition: place_value must be [0, 2] within the placement of the complete number
     :postcondition: produce the correct romannumeral representation of this digit
-    :return: roman numeral representation of the integer digit
+    :return: roman numeral representation of the integer digit as a string
 
     Test ones place digits.
     >>> get_romannumeral(1, 0)
@@ -90,9 +90,9 @@ def hundreds_romannumeral(positive_int):
     """Convert integers that have place value up to hundreds into roman numeral.
 
     :param positive_int: a positive integer <= 999
-    :precondition: the integer passed is positive and has a maximum of 3 place values
-    :postcondition: produces correct roman numeral representation of integer passed
-    :return: roman numeral representation of integer
+    :precondition: the integer passed is positive and has a maximum of 3 place values (<= 999)
+    :postcondition: produces correct roman numeral representation of the positive_int
+    :return: roman numeral representation of the positive_int as a string
 
     >>> hundreds_romannumeral(1) #minimum
     'I'
@@ -117,9 +117,9 @@ def romannumeral(positive_int):
     """Convert integers from [1, 10_000] into roman numerals.
 
     :param positive_int: a positive integer [1, 10_000]
-    :precondition: integer passed must be within range of 1 - 10_000
-    :postcondition: produce correct roman numeral of integer
-    :return: roman numeral representation of integer
+    :precondition: positive_int is a positive integer within the range of 1 - 10_000
+    :postcondition: produce correct roman numeral representation of positive_int
+    :return: roman numeral representation of posiitive_int as a string
 
     >>> romannumeral(1) # minimum
     'I'
