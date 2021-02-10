@@ -25,11 +25,11 @@ mapped_9 = ["W", "X", "Y", "Z"]
 
 
 def map_2to5(letter):
-    """Translate inputted letter to the mapped number that is [2, 5].
+    """Translate letter to the mapped number that is [2, 5].
 
-    :param letter: a single character capitalized letter
-    :precondition: pass string with a single character that is in the mapped_2to5 list
-                    or a string integer [2, 5]
+    :param letter: a single character string
+    :precondition: pass string with a single uppercase letter mapped to either
+                   2, 3, 4, or 5 on the phone
     :postcondition: translate input string to the correct mapped number as a string
     :return: a string integer of the mapped alpha_number
 
@@ -69,11 +69,11 @@ def map_2to5(letter):
 
 
 def map_6to9(letter):
-    """Translate inputted letter to the mapped number that is [6, 9].
+    """Translate letter to the mapped number that is [6, 9].
 
     :param letter: a single character capitalized letter
-    :precondition: pass string with a single character that is in the mapped_6to9 list
-                   or a string integer [6, 9]
+    :precondition: pass string with a single uppercase letter mapped to either
+                   6, 7, 8, or 9 on the phone
     :postcondition: translate input string to the correct mapped number as a string
     :return: a string integer of the mapped alpha_number
 
@@ -119,9 +119,9 @@ def map_6to9(letter):
 def alpha_to_number(character):
     """Return a given alpha_number digit (letter or number) to its mapped number.
 
-    :param character: an alphanumeric string with a single character
-    :postcondition: pass an alphanumeric string with a single character
-    :postcondition: translate input string to the correct mapped number as a string
+    :param character: a string with a single alphanumeric character
+    :postcondition: pass a string with a single character that is either an uppercase letter or number
+    :postcondition: translate input character to the correct mapped number as a string
     :return: a string integer of the mapped alpha_number
 
     >>> alpha_to_number("A")
@@ -161,8 +161,8 @@ def phone(input_phone):
                    X is a number or an uppercase letter character
     :postcondition: correctly translate a phone number with alphabetical
                     numbers to its numerical equivalent XXX-XXX-XXXX format
-                    where X is an integer
-    :return: string of phone number translated
+                    where X is an integer string
+    :return: string of phone number translated to all numbers
 
     >>> phone("604-123-4567")
     '604-123-4567'
