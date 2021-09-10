@@ -3,6 +3,7 @@
 ## 👋🏻 Welcome to my File of Functions
 In this repo, you will find a total of ten functions that are doctested and complete in the `completed_functions` folder.
 In addition, you can find flowcharts for each of the functions in the `flowcharts` folder.
+In each of the headers below, you will find a break down of each function's use of decomposition, pattern matching, abstraction, and automation.
 
 The functions explored in this repo are:
 * Roman Numeral
