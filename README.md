@@ -1,10 +1,4 @@
-# 1510-A2-Functions-functions-functions
-
-## Your name: Sally Poon
-
-## Your student number: A01232177
-
-### *** Any comments you would like me to read before examining your code must go below this line ***
+# Functions Functions Functions (in Python)
 
 ### 1. romannumeral.py
 **Decomposition:** This problem has been decomposed into 3 parts, going from the romannumeral function, which considers 
@@ -206,5 +200,3 @@ character's converted character. We do not need a specific function for each enc
 **Algorithms/Automation:** The caesar cipher will require us to translate each and every character. A for-loop is 
 extremely helpful in automating the process of passing each character to CIPHER_CHARACTER(). Using these loops, the 
 program will automatically end and return the result once all characters in the string has been looked at.
-
-### *** Any comments you would like me to read before examining your code must go above this line ***
