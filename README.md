@@ -131,7 +131,7 @@ than or equal to upper bound.
 range of years has been automated by indirection to this helper function. It is not necessary in our code to use
 multiple if/else statements to calculate which years are leap years.
 
-### 7. 🧺 eratosthenes.py
+### 🧺 7. eratosthenes.py
 **Decomposition:** This function can be broken down into 3 parts. An assigning and setup portion (in white), a large
 for-loop (in blue) that may have values to use in a nested for loop (in yellow).
 
@@ -149,7 +149,7 @@ automated. This is great because we do not need to generate a unique list of eva
 different upper bound passed. Instead, the evaluating list is automatically created, and we will flip through each
 evaluating number after we've checked, removed, and exhausted the original number list we are working from.
 
-### 8. 💵 moneychanger.py
+### 💵 8. moneychanger.py
 **Decomposition:** This module is broken into two separate functions. The first of which is the main, MONEYCHANGER()
 function, which does the work of compiling the output list, and the second is ROUNDOFF_PENNIES() function which does the
 job of rounding off pennies in order for the MONEYCHANGER() function to work smoothly without any snags.
@@ -177,7 +177,7 @@ using total_dollars. I've automated this process by use of the orange loop, whic
 amount down the list of different conversion values. The program will automatically end once total_dollars has been 
 passed through all the items in the canadian_currency list. 
 
-### 9. 🚲 dijkstra.py
+### 🚲 9. dijkstra.py
 **Decomposition:** The DIJKSTRA() function can be broken into three different parts. First, there is a process of
 counting the number of each colour there is and creating a string of these tallied colours. The second part is forming
 a list out of these elements through the helpful split method to turn strings quickly into a list. Finally, the third 
@@ -197,7 +197,7 @@ quickly and easily by counting and adding these elements into the original list.
  automated so that any length of list can adapt easily in the program. Using this for-loop (in orange), we do not need 
 to monitor when we stop appending elements because the loop will exit once we reach the end of the tally list.
 
-### 10. 🕵🏻‍♀️ caesarcipher.py
+### 🕵🏻‍♀️ 10. caesarcipher.py
 **Decomposition:** This module is broken up into one main function which uses a helper function to do a smaller task.
 First, the main CAESARCIPHER() function will accept all the necessary values, then evaluate encode Boolean to determine 
 if we need to modify the shift (not submitted shift if encode is false) before sending it to the cipher_character 
