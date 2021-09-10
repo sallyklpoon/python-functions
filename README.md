@@ -1,6 +1,22 @@
 # Functions Functions Functions (in Python)
 
-### 1. romannumeral.py
+## 👋🏻 Welcome to my File of Functions
+In this repo, you will find a total of ten functions that are doctested and complete in the `completed_functions` folder.
+In addition, you can find flowcharts for each of the functions in the `flowcharts` folder.
+
+The functions explored in this repo are:
+* Roman Numeral
+* Seconds conversion
+* Calculating Compound Interest
+* A sample Lottery
+* Translating a Phone Number involving Alpha characters
+* Finding Leap Years
+* Eratosthenes Sieve
+* Money Changer
+* Dijkstra
+* Caesar Cipher
+
+### 🔢 1. romannumeral.py
 **Decomposition:** This problem has been decomposed into 3 parts, going from the romannumeral function, which considers 
 the input number as a whole, checking if there is at thousands digit, then adding that to a second function which 
 looks after the input number's digits up to hundreds place. Finally, this second function calls on a third one which
@@ -21,7 +37,7 @@ the process of moving through each digit using HUNDREDS_ROMANNUMERAL (in orange)
 place value to the GET_ROMANNUMERAL function until the end and return itself to the ROMANNUMERAL function. Using
 automation, the program will loop itself until all digits have been translated properly.
 
-### 2. seconds.py
+### ⏰ 2. seconds.py
 **Decomposition:** The seconds function has been decomposed into two parts. First, a set-up portion (all in white), 
 which defines all the conversion values needed, the format of the conversion, and the output set. Second, the loop 
 portion (in purple), which contains an automation to simply convert the total seconds.
@@ -41,7 +57,7 @@ storing a new total_seconds, and appending the conversion to the output with eac
 Through the use of the conversion_list, seconds goes through each conversion and completes the same three
 tasks with each conversion until it reaches the end.
 
-### 3. compoundinterest.py
+### 💲 3. compoundinterest.py
 **Decomposition:** Compound interest can be decomposed based on the order of operations. First, get 2 operands (in blue)
 , which can happen simultaneously, then bring operand1 to the power of operand2. Finally, the last step is to multiply
 that result by the principal.
@@ -57,7 +73,7 @@ general process of finding the value of something, so it is in a sense a form of
 structured to automate the process of calculating compound interest. Because of it being based off a formula, we can
 automate the process of calculating compoundinterest for varying amounts that fit within the preconditions.
 
-### 4. lottery.py
+### 🍀 4. lottery.py
 **Decomposition:** This function is decomposed into two parts. One part is a helper function called SAMPLE() imported 
 from the random library. This function will produce 6 random and unique numbers. The second part of this function is
 the main function, which will take the result of SAMPLE() and return it sorted.
@@ -77,7 +93,7 @@ number will continue to be drawn until we reach the end of the specified k numbe
 that, since we've already asked SAMPLE() to draw 6 elements from the range of [1, 49], the LOTTERY() function literally
 does not need any parameters to be passed as arguments. Calling LOTTERY() by itself will provide an appropriate result.
 
-### 5. phone.py
+### 📞 5. phone.py
 **Decomposition:** Phone has been decomposed to use one other helper function that leads to two smaller, 'sub-functions'
 , if you will. First off the function phone itself will append translated characters to a new string for 
 translated_phone. If the character isn't a "-" character, then we will ask ALPHA_TO_NUMBER to get a translation result
@@ -99,7 +115,7 @@ letters to numbers on all phone numbers!
  the '-') needs to be looked at, I automated the process of 'flipping' through each number until the end of the string
 using a for-loop in PHONE() (in purple).
 
-### 6. leapyears.py
+### 🐇 6. leapyears.py
 **Decomposition:** This module has been broken down into a main function, LEAPYEARS() and a helper function imported
 from calendar LEAPDAYS(). LEAPDAYS() is a function that will find leap years within a given range, we simply need to
 send the correct lower_bound and upper_bound (+ 1 to make sure upper_bound is included) to that function.
@@ -115,7 +131,7 @@ than or equal to upper bound.
 range of years has been automated by indirection to this helper function. It is not necessary in our code to use
 multiple if/else statements to calculate which years are leap years.
 
-### 7. eratosthenes.py
+### 7. 🧺 eratosthenes.py
 **Decomposition:** This function can be broken down into 3 parts. An assigning and setup portion (in white), a large
 for-loop (in blue) that may have values to use in a nested for loop (in yellow).
 
@@ -133,7 +149,7 @@ automated. This is great because we do not need to generate a unique list of eva
 different upper bound passed. Instead, the evaluating list is automatically created, and we will flip through each
 evaluating number after we've checked, removed, and exhausted the original number list we are working from.
 
-### 8. moneychanger.py
+### 8. 💵 moneychanger.py
 **Decomposition:** This module is broken into two separate functions. The first of which is the main, MONEYCHANGER()
 function, which does the work of compiling the output list, and the second is ROUNDOFF_PENNIES() function which does the
 job of rounding off pennies in order for the MONEYCHANGER() function to work smoothly without any snags.
@@ -161,7 +177,7 @@ using total_dollars. I've automated this process by use of the orange loop, whic
 amount down the list of different conversion values. The program will automatically end once total_dollars has been 
 passed through all the items in the canadian_currency list. 
 
-### 9. dijkstra.py
+### 9. 🚲 dijkstra.py
 **Decomposition:** The DIJKSTRA() function can be broken into three different parts. First, there is a process of
 counting the number of each colour there is and creating a string of these tallied colours. The second part is forming
 a list out of these elements through the helpful split method to turn strings quickly into a list. Finally, the third 
@@ -181,7 +197,7 @@ quickly and easily by counting and adding these elements into the original list.
  automated so that any length of list can adapt easily in the program. Using this for-loop (in orange), we do not need 
 to monitor when we stop appending elements because the loop will exit once we reach the end of the tally list.
 
-### 10. caesarcipher.py
+### 10. 🕵🏻‍♀️ caesarcipher.py
 **Decomposition:** This module is broken up into one main function which uses a helper function to do a smaller task.
 First, the main CAESARCIPHER() function will accept all the necessary values, then evaluate encode Boolean to determine 
 if we need to modify the shift (not submitted shift if encode is false) before sending it to the cipher_character 
